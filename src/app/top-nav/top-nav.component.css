@@ -1,0 +1,48 @@
+#topNav {
+    height: 8vh;
+    background-color: #1fc8db;
+    background-image: linear-gradient(141deg, #9fb8ad 0%, #1fc8db 51%, #2cb5e8 75%);
+    width: 100%;
+    display: inline-flex;
+}
+
+#topNav h2 {
+    margin: 0;
+    font-family: Apple Chancery, cursive;
+    color: #2F4F4F;
+    letter-spacing: 1px;
+}
+
+#title {
+    width: 50%;
+    margin-top: 1.5vh;
+    margin-left: 3vw;
+}
+
+#title a {
+    text-decoration: none;
+}
+
+#nav {
+    width: 50%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+#navLinks li {
+    width: 10%;
+    font-family: Apple Chancery, cursive;
+    font-size: 18px;
+    display: inline-flex;
+    margin-left: 5vw;
+}
+
+li a:hover {
+    color: darkblue;
+    font-weight: bold;
+}
+
+#navLinks li a {
+    text-decoration: none;
+    cursor: pointer;
+}
