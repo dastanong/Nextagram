@@ -11,17 +11,21 @@ export class HomePageComponent implements OnInit {
   @Input() users: any
   
   specificUser = null
-  //getId
+  getId
   
   constructor(private UserService: UserServiceService, private route: ActivatedRoute) { }
 
   ngOnInit() {
     this.UserService.getUserId(
       this.route.snapshot.params.userId).subscribe(response => {
-        //this.getId = this.route.snapshot.params.userId
+        this.getId = parseInt(this.route.snapshot.params.userId)
         this.specificUser = response
         console.log(this.specificUser)
-        //console.log(this.getId)
+        console.log(this.getId)
+      })
+
+      this.UserService.getUsers().subscribe(response => {
+        this.users = response
       })
   }
 }
