@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { UserServiceService } from '../user-service.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-home-page',
@@ -7,20 +8,20 @@ import { UserServiceService } from '../user-service.service';
   styleUrls: ['./home-page.component.css']
 })
 export class HomePageComponent implements OnInit {
+  @Input() users: any
   
-  users = null;
-
-  constructor(private UserService: UserServiceService) { }
-
-  getUser() {
-    this.UserService.getUsers().subscribe(response => {
-      this.users = response
-      console.log(this.users)
-    })
-  }
+  specificUser = null
+  //getId
+  
+  constructor(private UserService: UserServiceService, private route: ActivatedRoute) { }
 
   ngOnInit() {
-    this.getUser()
+    this.UserService.getUserId(
+      this.route.snapshot.params.userId).subscribe(response => {
+        //this.getId = this.route.snapshot.params.userId
+        this.specificUser = response
+        console.log(this.specificUser)
+        //console.log(this.getId)
+      })
   }
-
 }

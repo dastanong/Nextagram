@@ -7,13 +7,15 @@ import { HomePageComponent } from './home-page/home-page.component';
 import { TopNavComponent } from './top-nav/top-nav.component';
 import { HttpClientModule } from '@angular/common/http';
 import { UserImageComponent } from './user-image/user-image.component';
+import { UserListComponent } from './user-list/user-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomePageComponent,
     TopNavComponent,
-    UserImageComponent
+    UserImageComponent,
+    UserListComponent
   ],
   imports: [
     BrowserModule,

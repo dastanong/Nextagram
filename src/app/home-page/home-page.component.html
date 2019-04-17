@@ -1,8 +1,10 @@
-<div class="container">
-    <div id="userBox" *ngFor="let user of users">
-        <a routerLink="/users/{{ user.id }}">
-        <div><img src="{{ user.profileImage }}" id="userImage"/></div>
-        <div id="username">{{ user.username }}</div>
-        </a>
+<div id="userProfile" *ngIf="specificUser">
+    <div *ngFor="let userImg of specificUser">
+        <img id="userImage" src="{{ userImg }}"/>
     </div>
 </div>
+
+
+<!-- <div *ngFor="let user of users">
+    {{ user.username }}
+</div> -->

@@ -1,29 +1,6 @@
-.container {
-    margin-left: 15%;
-}
-
-#userBox {
-    display: inline-block;
-    margin: 20px;
-}
-
-#userBox a {
-    text-decoration: none;
-}
-
 #userImage {
     height: 200px;
-    width: 200px;
-    border: 1px solid #ddd;
-    border-radius: 6px;
+    width: 300px;
+    float: left;
     padding: 5px;
-}
-
-img:hover {
-    box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
-}
-
-#username {
-    font-family: "Comic Sans MS";
-    color: rebeccapurple
 }

@@ -1,8 +1,5 @@
 <div id="userProfile" *ngIf="specificUser">
-  <div *ngFor="let theUser of specificUser">
-    <img id="userImage" src="{{ theUser }}"/>
+  <div *ngFor="let userImg of specificUser">
+    <img id="userImage" src="{{ userImg }}"/>
   </div>
-  {{ getId }}
-
-  {{ getUsername }}
 </div>
