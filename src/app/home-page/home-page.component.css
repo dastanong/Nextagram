@@ -1,6 +1,40 @@
+.imgContainer {
+    display: inline-flex;
+    width: 100%;
+    margin-top: 3vh;
+}
+
+#userName {
+    color: rgb(77, 75, 75);
+    margin-left: 2vw;
+    width: 50%;
+}
+
+.line {
+    border-left: 1px solid rgb(194, 192, 192);
+    margin-left: 3vw;
+    margin-right: 3vw;
+    z-index: -1;
+    height: 500px;
+}
+
+#userProfile {
+    width: 80%;
+}
+
+#profileImg {
+    height: 200px;
+    width: 200px;
+    border: 5px solid;
+    border-image-source: linear-gradient(45deg, rgb(0,143,104), rgb(250,224,66));
+    border-image-slice: 1;
+    padding: 2px;
+}
+
 #userImage {
     height: 200px;
     width: 300px;
     float: left;
     padding: 5px;
+    padding-top: 0;
 }

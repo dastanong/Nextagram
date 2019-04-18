@@ -1,10 +1,16 @@
-<div *ngFor="let user of users">
-    <div *ngIf="user.id == getId">
-        <h3>{{ user.username }}</h3>
+<div class="imgContainer">
+    <div *ngIf="getId">
+        <div id="userName" *ngFor="let user of users">
+            <div *ngIf="user.id == getId">
+                <div><img id="profileImg" src="{{ user.profileImage }}"/></div>
+                <h2>{{ user.username }}</h2>
+            </div>
+        </div>
     </div>
-</div>
-<div id="userProfile" *ngIf="specificUser">
-    <div *ngFor="let userImg of specificUser">
-        <img id="userImage" src="{{ userImg }}"/>
+    <div class="line"></div>
+    <div id="userProfile" *ngIf="specificUser">
+        <div *ngFor="let userImg of specificUser">
+            <img id="userImage" src="{{ userImg }}"/>
+        </div>
     </div>
 </div>
