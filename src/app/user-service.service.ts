@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
+const baseUrl = "https://insta.nextacademy.com/api/v1/"
+
 const imageUrl = "https://insta.nextacademy.com/api/v1/images?userId="
 const userUrl = "https://insta.nextacademy.com/api/v1/users/"
 
@@ -21,4 +23,12 @@ export class UserServiceService {
   getUserId(userId) {
     return this.http.get(imageUrl + `${userId}`)
   }
+
+  postSignUp(result: Object) {
+    this.http.post(`${baseUrl}users`, result).subscribe(response => {
+      console.log(response)
+    })
+  }
+
+  
 }

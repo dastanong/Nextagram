@@ -30,11 +30,11 @@
 }
 
 #navLinks li {
-    width: 10%;
     font-family: Apple Chancery, cursive;
     font-size: 18px;
     display: inline-flex;
-    margin-left: 5vw;
+    margin-left: 2vw;
+    margin-right: 2vw;
 }
 
 li a:hover {

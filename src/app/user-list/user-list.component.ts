@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { UserServiceService } from '../user-service.service';
-import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-user-list',
@@ -11,7 +10,7 @@ export class UserListComponent implements OnInit {
 
   users: any
 
-  constructor(private UserService: UserServiceService, private route: ActivatedRoute) { }
+  constructor(private UserService: UserServiceService) { }
 
   getUser() {
     this.UserService.getUsers().subscribe(response => {

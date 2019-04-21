@@ -8,9 +8,5 @@
         </div>
     </div>
     <div class="line"></div>
-    <div id="userProfile" *ngIf="specificUser">
-        <div *ngFor="let userImg of specificUser">
-            <img id="userImage" src="{{ userImg }}"/>
-        </div>
-    </div>
+    <app-user-image></app-user-image>
 </div>

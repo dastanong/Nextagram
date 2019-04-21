@@ -1,6 +1,13 @@
+#userProfile {
+    width: 80%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
 #userImage {
     height: 200px;
     width: 300px;
     float: left;
     padding: 5px;
+    padding-top: 0;
 }

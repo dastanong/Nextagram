@@ -8,21 +8,15 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./home-page.component.css']
 })
 export class HomePageComponent implements OnInit {
-  @Input() users: any
-  
-  specificUser = null
-  getId
-  
+  users: any
+  @Input() specificUser
+  @Input() getId
+
   constructor(private UserService: UserServiceService, private route: ActivatedRoute) { }
 
   ngOnInit() {
-    this.UserService.getUserId(
-      this.route.snapshot.params.userId).subscribe(response => {
-        this.getId = parseInt(this.route.snapshot.params.userId)
-        this.specificUser = response
-        console.log(this.specificUser)
-        console.log(this.getId)
-      })
+      this.getId = parseInt(this.route.snapshot.params.userId)
+      console.log(this.getId)
 
       this.UserService.getUsers().subscribe(response => {
         this.users = response
