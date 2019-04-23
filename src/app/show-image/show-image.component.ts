@@ -1,13 +1,8 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { UserServiceService } from '../user-service.service';
 import { ImageService } from '../image.service';
 import { ActivatedRoute } from '@angular/router';
-
-interface Image {
-  id: number
-  imageUrl: string
-  count: number
-}
+import { FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-show-image',
@@ -15,21 +10,28 @@ interface Image {
   styleUrls: ['./show-image.component.css']
 })
 export class ShowImageComponent implements OnInit {
+
+  commentForm = new FormControl("", [Validators.required])
+
   specificImg = null
   imageId: string = null
   index = null
-  counts
-  
-  imageArray: Image = {
-    id: 0,
+  imgIndex = null
+  counts = 0
+  imageValues:any = []
+  imageObject = {
+    id: "",
+    userId: "",
     imageUrl: "",
-    count: 0
+    count: 0,
+    comment: []
   }
 
   constructor(private route: ActivatedRoute, private UserService: UserServiceService, private ImageService: ImageService) { }
 
   ngOnInit() {
     this.imageId = this.route.snapshot.params.imageId
+    
     console.log("URL image id is " + this.imageId)
 
     this.UserService.getUserId(
@@ -37,26 +39,54 @@ export class ShowImageComponent implements OnInit {
         this.index = Object.keys(response)
         for(let i in this.index) {
           if(this.imageId == i) {
-            this.index = this.imageId
-            this.imageArray.id = this.index
-            this.imageArray.imageUrl = response[i]
             this.specificImg = response[i]
             console.log(this.specificImg)
-            console.log(this.imageArray)
           }
         }
       })
 
-    this.ImageService.getCount().subscribe(likeCount => {
-      this.counts = likeCount
-      console.log(this.counts)
+    this.ImageService.getImageArray().subscribe(imageArray => {
+      if(imageArray.length > 0) {
+        console.log(imageArray)
+        for(let i = 0; i < imageArray.length; i++) {
+          let imgId = imageArray[i].id
+          let userId = imageArray[i].userId
+          console.log(imageArray[i].comment)
+          if(this.imageId == imgId && this.route.snapshot.params.userId == userId) {
+            this.imageValues[0] = imageArray[i]
+            console.log(this.imageValues)
+          }
+        }
+      }
     })
   }
 
   addCounts() {
-    this.ImageService.addCount()
-    console.log("The count increase to " + this.counts)
-    this.imageArray.count = this.counts
-    console.log("Like increased " + this.imageArray.count)
+    this.counts+=1
+    console.log(this.imageId, this.route.snapshot.params.userId, this.specificImg, this.counts)
+    this.imageObject = {
+      id: this.imageId,
+      userId: this.route.snapshot.params.userId,
+      imageUrl: this.specificImg,
+      count: this.counts,
+      comment: []
+    }
+    this.ImageService.storeImgValues(this.imageObject)
+    console.log(this.imageObject)
+  }
+
+  addComment() {
+    console.log(this.commentForm.value)
+
+    this.imageObject = {
+      id: this.imageId,
+      userId: this.route.snapshot.params.userId,
+      imageUrl: this.specificImg,
+      count: 0,
+      comment: [this.commentForm.value]
+    }
+    this.ImageService.addComment(this.imageObject)
+    console.log(this.imageObject)
+    this.commentForm.setValue("")
   }
 }

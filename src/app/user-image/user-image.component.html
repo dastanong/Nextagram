@@ -1,6 +1,6 @@
 <div id="userProfile" *ngIf="specificUser">
     <div *ngFor="let userImg of specificUser; let i = index">
-      <a (click)="getSpecificImg()" routerLink="/users/{{ userId }}/{{ i }}">
+      <a routerLink="/users/{{ userId }}/{{ i }}">
         <img id="userImage" src="{{ userImg }}"/>
       </a>
     </div>

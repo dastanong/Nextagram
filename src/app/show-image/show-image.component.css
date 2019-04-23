@@ -3,6 +3,33 @@
     margin: 20px;
 }
 
+#imageBox {
+    width: 75%;
+}
+
+#rightSection {
+    width: 20%;
+}
+
+#likeBox {
+    display: flex;
+}
+
+#btnLike {
+    width: 20px;
+    height: 20px;
+}
+
+#likeCount {
+    margin-left: 3vw;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.commentsList {
+    background-color: rgba(241, 234, 234, 0.5);
+}
+
 #showImage {
     width: 70vw;
     height: 80vh;
@@ -11,4 +38,8 @@
 #likeBox {
     margin-left: 5px;
     margin-bottom: 2vh;
+}
+
+#btnComment {
+    margin-top: 2vh;
 }

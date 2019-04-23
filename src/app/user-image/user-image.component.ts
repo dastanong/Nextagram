@@ -15,8 +15,8 @@ export class UserImageComponent implements OnInit {
   constructor(private UserService: UserServiceService, private route: ActivatedRoute) { }
 
   ngOnInit() {
-    this.UserService.getUserId(
-      this.route.snapshot.params.userId).subscribe(response => {
+
+    this.UserService.getUserId(this.route.snapshot.params.userId).subscribe(response => {
         this.userId = this.route.snapshot.params.userId
         this.getId = parseInt(this.route.snapshot.params.userId)
         this.specificUser = response

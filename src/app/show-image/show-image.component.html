@@ -2,9 +2,24 @@
   <div id="imageBox">
     <img id="showImage" src="{{ specificImg }}">
   </div>
-
-  <div id="likeBox">
-    <button (click)="addCounts()">Like</button>
-    <label>{{ currentCount }}</label>
+  <div id="rightSection">
+    <div id="likeBox">
+      <button (click)="addCounts()"><img id="btnLike" src="https://cdn.worldvectorlogo.com/logos/thumbs-up-facebook.svg"></button>
+      <div *ngFor="let image of imageValues">
+        <label id="likeCount" *ngIf="image.count > 0">{{ image.count }}</label>
+      </div>
+    </div>
+    <label>Comments : </label><br>
+    <div *ngFor="let image of imageValues">
+      <div *ngIf="image.comment.length > 0">
+        <div class="commentsList" *ngFor="let comments of image.comment">
+          <p>{{ comments }}</p>
+        </div>
+      </div>
+    </div>
+    <div id="commentBox">
+      <input type="text" [formControl]="commentForm"><br>
+      <button id="btnComment" (click)="addComment()">Add Comment</button>
+    </div>
   </div>
 </div>
