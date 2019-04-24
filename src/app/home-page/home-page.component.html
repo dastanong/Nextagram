@@ -6,6 +6,9 @@
                 <h2>{{ user.username }}</h2>
             </div>
         </div>
+        <div id="profileLink">
+            <a id="myProfile" (click)="addProfile()" routerLink="/{{ getId }}/myprofile">My Profile</a>
+        </div>
     </div>
     <div class="line"></div>
     <app-user-image></app-user-image>

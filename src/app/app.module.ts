@@ -10,6 +10,7 @@ import { UserImageComponent } from './user-image/user-image.component';
 import { UserListComponent } from './user-list/user-list.component';
 import { SignupPageComponent } from './signup-page/signup-page.component';
 import { ShowImageComponent } from './show-image/show-image.component';
+import { EditProfileComponent } from './edit-profile/edit-profile.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { ShowImageComponent } from './show-image/show-image.component';
     UserImageComponent,
     UserListComponent,
     SignupPageComponent,
-    ShowImageComponent
+    ShowImageComponent,
+    EditProfileComponent
   ],
   imports: [
     BrowserModule,

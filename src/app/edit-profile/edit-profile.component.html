@@ -1,0 +1,33 @@
+<div id="profileContainer">
+  <h2>My Profile</h2>
+  <div *ngIf="showForm == false">
+    <div id="myProfile" *ngFor="let profile of profileValues">
+      <div *ngFor="let user of users">
+          <div *ngIf="user.id == userId">
+            <label>Username : </label>{{ user.username }}
+          </div>
+      </div>
+      <div class="profileInfo"><label>Name : </label>{{ profile.name }}</div>
+      <div class="profileInfo"><label>Description : </label>{{ profile.description }}</div>
+      <div class="profileInfo"><label>Blog Link : </label>{{ profile.bloglink }}</div>
+      <div class="profileInfo"><label>Facebook Link : </label>{{ profile.facebooklink }}</div>
+      <div class="profileInfo"><label>Email : </label>{{ profile.email }}</div>
+    </div>
+    <div>
+      <button (click)="editProfile()">Edit</button>
+    </div>
+  </div>
+  <div *ngIf="showForm == true">
+    <form id="profileForm" [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+      <div class="profileEdit"><label>Name : </label><input type="text" formControlName="name"/></div>
+      <div class="profileEdit"><label> Description : </label><input type="text" formControlName="description"/></div>
+      <div class="profileEdit"><label>Blog Link : </label><input type="text" formControlName="bloglink"/></div>
+      <div class="profileEdit"><label>Facebook Link : </label><input type="text" formControlName="facebooklink"/></div>
+      <div class="profileEdit"><label>E-mail : </label><input type="email" formControlName="email"/></div>
+      <input type="submit"/>
+    </form>
+    <div id="backBox" *ngIf="showForm == true">
+      <button (click)="backtoProfile()">Back</button>
+    </div>
+  </div>
+</div>

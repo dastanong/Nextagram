@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { UserServiceService } from '../user-service.service';
 import { ImageService } from '../image.service';
 import { ActivatedRoute } from '@angular/router';
-import { FormControl, Validators } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-show-image',
@@ -78,15 +78,17 @@ export class ShowImageComponent implements OnInit {
   addComment() {
     console.log(this.commentForm.value)
 
-    this.imageObject = {
-      id: this.imageId,
-      userId: this.route.snapshot.params.userId,
-      imageUrl: this.specificImg,
-      count: 0,
-      comment: [this.commentForm.value]
+    if(!this.commentForm.invalid) {
+      this.imageObject = {
+        id: this.imageId,
+        userId: this.route.snapshot.params.userId,
+        imageUrl: this.specificImg,
+        count: 0,
+        comment: [this.commentForm.value]
+      }
+      this.ImageService.addComment(this.imageObject)
+      console.log(this.imageObject)
+      this.commentForm.setValue("")
     }
-    this.ImageService.addComment(this.imageObject)
-    console.log(this.imageObject)
-    this.commentForm.setValue("")
   }
 }

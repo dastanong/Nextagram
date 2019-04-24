@@ -1,0 +1,17 @@
+#profileContainer {
+    margin-left: 20%;
+}
+
+.profileInfo {
+    width: 100%;
+    margin: 10px;
+}
+
+.profileEdit {
+    width: 100%;
+    margin: 10px;
+}
+
+#backBox {
+    margin-top: 8px;
+}
